@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcar Consultas - Secretaria Municipal de Saúde</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <p>Secretaria Municipal de Saúde</p>
+        <nav>
+            <a href="#" id="profile-icon">
+                <img src="/front/imagens/icone.png" alt="Ícone de perfil">
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="form">
+            <h1>Marcar Consultas</h1>
+            <p>Selecione as opções desejadas</p>
+            <form id="form-consulta">
+                <div class="form-group">
+                    <label for="unidade">Unidade</label>
+                    <select id="unidade" required>
+                        <option value="">-- Unidade --</option>
+                        <option value="posto 1">Posto 1</option>
+                        <option value="posto 2">Posto 2</option>
+                        <option value="posto 3">Posto 3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidade">Especialidade</label>
+                    <select id="especialidade" required>
+                        <option value="">-- Especialidade --</option>
+                        <option value="pediatra">Pediatra</option>
+                        <option value="cardiologista">Cardiologista</option>
+                        <option value="urologista">Urologista</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <select id="hora" required>
+                        <option value="">-- Horário --</option>
+                        <option value="">15h</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="../imagens/logo_prefeitura.png" alt="Logo Prefeitura">
+        <p>Rua Sá e Albuquerque, 233, Jaraguá, Maceió-AL CEP: 57022-180<br>
+            Telefone: (82) 3312-5800</p>
+    </div>
+
+    <!-- Caminho do script corrigido -->
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - Secretaria Municipal de Saúde</title>
+    <link rel="stylesheet" href="/front/tela_menu_principal/menu_principal.css">
+    <script>
+        function toggleProfileMenu() {
+            const menu = document.getElementById('profile-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('profile-menu');
+            const icon = document.getElementById('profile-icon');
+            if (!menu.contains(event.target) && !icon.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            Secretaria Municipal de Saúde
+            <img id="profile-icon" class="profile-icon" src="/front/imagens/icone.png" alt="Perfil" onclick="toggleProfileMenu()">
+            <div id="profile-menu" class="profile-menu">
+                <ul>
+                    <li onclick="location.href='editar_cadastro.html'">Editar Perfil</li>
+                    <li onclick="location.href='logout.html'">Sair</li>
+                </ul>
+            </div>
+        </header>
+
+        <h2>Bem-vindo(a) ao Portal da Saúde</h2>
+        <p>Escolha uma das opções abaixo para gerenciar suas consultas.</p>
+
+        <div class="options-container">
+            <div class="option">
+                <img src="/front/imagens/calendario.webp" alt="Marcar Consulta">
+                <h3>Marcar Consulta</h3>
+                <p>Agende sua consulta no posto de saúde mais próximo.</p>
+                <a href="/front/marcar_consulta/index.html" >Acessar</a>
+            </div>
+
+            <div class="option">
+                <img src="/front/imagens/historico.webp" alt="Visualizar Consultas">
+                <h3>Visualizar Consultas</h3>
+                <p>Confira suas consultas agendadas e o histórico de atendimentos.</p>
+                <a href="visualizar_consultas.html">Acessar</a>
+            </div>
+        </div>
+
+        <div class="logo-container">
+            <img src="/front/imagens/logo_prefeitura.png" alt="Logo da Prefeitura">
+        </div>
+    </div>
+
+    <footer>
+        Rua Sá e Albuquerque, 235, Jaraguá, Maceió-AL CEP: 57022-180<br>
+        Telefone: (82) 3312-5800
+    </footer>
+</body>
+</html>

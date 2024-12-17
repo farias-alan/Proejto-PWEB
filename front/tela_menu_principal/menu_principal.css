@@ -1,0 +1,148 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.main-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+.main-header {
+    background-color: #F58428;
+    color: #fff;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.profile-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 40px; /* Tamanho ajustado apenas para o ícone */
+    height: auto;
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+}
+
+.profile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.profile-menu ul li {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+}
+
+.profile-menu ul li:hover {
+    background-color: #f5f5f5;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.option {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.option:hover {
+    transform: scale(1.05);
+}
+
+.option img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.option h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.option a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #F58428;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.option a:hover {
+    background-color: #e67e00;
+}
+
+.logo-container {
+    margin-top: 40px;
+}
+
+.logo-container img {
+    max-width: 300px;
+    margin-top: 15%;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #666;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+}

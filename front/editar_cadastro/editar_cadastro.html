@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Secretaria Municipal de Saúde</title>
+    <link rel="stylesheet" href="editar_cadastro.css">
+</head>
+<body>
+
+    <div class="header">
+        <p>Secretaria Municipal de Saúde</p>
+        <nav>
+            <a href="#">tela1</a>
+            <a href="#">tela2</a>
+            <a href="#">tela03</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <div class="form">
+                <h2>EDITAR CADASTRO</h2>
+                <p>Edite suas informações nos campos abaixo</p>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" id="sobrenome" placeholder="Digite seu sobrenome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="data-nascimento">Data de Nascimento</label>
+                        <input type="date" id="data-nascimento">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo">
+                            <option value="">-- Selecione --</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">SALVAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="form troca-senha">
+                <h2>TROCAR SENHA</h2>
+                <p>Altere sua senha nos campos abaixo</p>
+                <form>
+                    <div class="form-group">
+                        <label for="senha">Nova Senha</label>
+                        <input type="password" id="nova-senha" placeholder="Digite sua nova senha">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-senha">Confirmar Nova Senha</label>
+                        <input type="password" id="confirmar-nova-senha" placeholder="Confirme sua nova senha">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">ALTERAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="../imagens/logo_prefeitura.png" alt="">
+        <p>Rua Sá e Albuquerque, 233, Jaraguá, Maceió-AL CEP: 57022-180<br>
+        Telefone: (82) 3312-5800</p>
+    </div>
+</body>
+</html>

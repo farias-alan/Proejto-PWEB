@@ -39,6 +39,12 @@ body {
     font-weight: bold;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: none;
+}
+
 .form {
     padding: 40px;
 }

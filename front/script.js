@@ -283,6 +283,61 @@ const form = document.getElementById("cadastroForm");
             }
 
             if (!valido) e.preventDefault();
+
+        
+        
+    const form = document.getElementById("loginForm");
+    const perfil = document.getElementById("perfil");
+    const cpfInput = document.getElementById("cpf-login");
+    const senha = document.getElementById("senha-login");
+
+    const erroPerfil = document.getElementById("erroPerfil");
+    const erroCpf = document.getElementById("erroCpf");
+    const erroSenha = document.getElementById("erroSenha");
+
+    // Validação em tempo real do CPF (formato 000.000.000-00)
+    cpfInput.addEventListener("input", function () {
+    let cpf = cpfInput.value.replace(/\D/g, ""); // Remove não dígitos
+    if (cpf.length > 11) cpf = cpf.substring(0, 11);
+
+    // Formata o CPF enquanto o usuário digita
+    cpfInput.value = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        });
+
+    // Validação no envio do formulário
+    form.addEventListener("submit", function (e) {
+    let valid = true;
+
+    // Validação do perfil
+    if (perfil.value === "") {
+    erroPerfil.style.display = "block";
+    valid = false;
+    } else {
+        erroPerfil.style.display = "none";
+            }
+
+    // Validação do CPF (formato e tamanho)
+    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    if (!cpfRegex.test(cpfInput.value)) {
+        erroCpf.style.display = "block";
+            valid = false;
+        } else {
+                erroCpf.style.display = "none";
+        }
+
+            // Validação da senha
+            if (senha.value.trim() === "") {
+                erroSenha.style.display = "block";
+                valid = false;
+            } else {
+                erroSenha.style.display = "none";
+            }
+
+            if (!valid) {
+                e.preventDefault(); // Impede o envio se houver erros
+            } else {
+                alert("Login enviado com sucesso!");
+            }
 });
 
 

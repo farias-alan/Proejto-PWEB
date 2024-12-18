@@ -192,3 +192,97 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dataInput) dataInput.addEventListener("input", carregarHorariosDisponiveis);
     if (formConsulta) formConsulta.addEventListener("submit", marcarConsulta);
 });
+
+//validação de campos
+const form = document.getElementById("cadastroForm");
+
+        // Campos do formulário
+        const campos = {
+            nome: document.getElementById("nome"),
+            sobrenome: document.getElementById("sobrenome"),
+            email: document.getElementById("email"),
+            dataNascimento: document.getElementById("data-nascimento"),
+            cpf: document.getElementById("cpf"),
+            sexo: document.getElementById("sexo"),
+            senha: document.getElementById("senha"),
+            confirmarSenha: document.getElementById("confirmar-senha"),
+            termos: document.getElementById("termos"),
+        };
+
+        // Mensagens de erro
+        const mensagensErro = {
+            nome: document.getElementById("erroNome"),
+            sobrenome: document.getElementById("erroSobrenome"),
+            email: document.getElementById("erroEmail"),
+            dataNascimento: document.getElementById("erroData"),
+            cpf: document.getElementById("erroCpf"),
+            sexo: document.getElementById("erroSexo"),
+            senha: document.getElementById("erroSenha"),
+            termos: document.getElementById("erroTermos"),
+        };
+
+        // Validações em tempo real
+        //campos.nome.addEventListener("input", () => validarMaxLength(campos.nome, mensagensErro.nome));
+        //campos.sobrenome.addEventListener("input", () => validarMaxLength(campos.sobrenome, mensagensErro.sobrenome));
+        campos.email.addEventListener("input", validarEmail);
+        campos.confirmarSenha.addEventListener("input", validarSenhas);
+
+        // Funções de validação
+        //function validarMaxLength(campo, mensagemErro) {
+            //mensagemErro.style.display = campo.value.length > campo.maxLength ? "block" : "none";
+        //}
+
+        function validarEmail() {
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            mensagensErro.email.style.display = !regexEmail.test(campos.email.value) ? "block" : "none";
+        }
+
+        function validarSenhas() {
+            mensagensErro.senha.style.display = campos.senha.value !== campos.confirmarSenha.value || campos.senha.value.length < 8 ? "block" : "none";
+        }
+
+        // Validação final ao submeter
+        form.addEventListener("submit", function (e) {
+            let valido = true;
+
+            if (!campos.nome.value) {
+                mensagensErro.nome.style.display = "block";
+                valido = false;
+            }
+            if (!campos.sobrenome.value) {
+                mensagensErro.sobrenome.style.display = "block";
+                valido = false;
+            }
+            if (!campos.email.value) {
+                mensagensErro.email.style.display = "block";
+                valido = false;
+            }
+            if (!campos.cpf.value) {
+                mensagensErro.cpf.style.display = "block";
+                valido = false;
+            }
+            if (!campos.dataNascimento.value) {
+                mensagensErro.dataNascimento.style.display = "block";
+                valido = false;
+            }
+            if (!campos.sexo.value) {
+                mensagensErro.sexo.style.display = "block";
+                valido = false;
+            }
+            if (!campos.senha.value) {
+                mensagensErro.senha.style.display = "block";
+                valido = false;
+            }
+            if (!campos.confirmarSenha.value) {
+                mensagensErro.confirmarSenha.style.display = "block";
+                valido = false;
+            }
+            if (!campos.termos.checked) {
+                mensagensErro.termos.style.display = "block";
+                valido = false;
+            }
+
+            if (!valido) e.preventDefault();
+});
+
+

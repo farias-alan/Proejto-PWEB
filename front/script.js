@@ -284,60 +284,78 @@ const form = document.getElementById("cadastroForm");
 
             if (!valido) e.preventDefault();
 
+        });        
+ 
         
-        
-    const form = document.getElementById("loginForm");
-    const perfil = document.getElementById("perfil");
-    const cpfInput = document.getElementById("cpf-login");
-    const senha = document.getElementById("senha-login");
+        const perfil = document.getElementById("perfil");
+        const cpfInput = document.getElementById("cpf-login");
+        const senha = document.getElementById("senha-login");
 
-    const erroPerfil = document.getElementById("erroPerfil");
-    const erroCpf = document.getElementById("erroCpf");
-    const erroSenha = document.getElementById("erroSenha");
+        // Seleção das mensagens de erro
+        const erroPerfil = document.getElementById("erroPerfil");
+        const erroCpf = document.getElementById("erroCpf");
+        const erroSenha = document.getElementById("erroSenha");
 
-    // Validação em tempo real do CPF (formato 000.000.000-00)
-    cpfInput.addEventListener("input", function () {
-    let cpf = cpfInput.value.replace(/\D/g, ""); // Remove não dígitos
-    if (cpf.length > 11) cpf = cpf.substring(0, 11);
+        // Validação do CPF em tempo real
+        cpfInput.addEventListener("input", function () {
+            let cpf = cpfInput.value.replace(/\D/g, ""); // Remove não dígitos
+            if (cpf.length > 11) cpf = cpf.substring(0, 11);
 
-    // Formata o CPF enquanto o usuário digita
-    cpfInput.value = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+            // Formata o CPF enquanto o usuário digita
+            cpfInput.value = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+
+            // Exibe ou oculta a mensagem de erro
+            if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpfInput.value)) {
+                erroCpf.style.display = "block";
+            } else {
+                erroCpf.style.display = "none";
+            }
         });
 
-    // Validação no envio do formulário
-    form.addEventListener("submit", function (e) {
-    let valid = true;
+        // Validação do perfil em tempo real
+        perfil.addEventListener("change", function () {
+            if (perfil.value === "") {
+                erroPerfil.style.display = "block";
+            } else {
+                erroPerfil.style.display = "none";
+            }
+        });
 
-    // Validação do perfil
-    if (perfil.value === "") {
-    erroPerfil.style.display = "block";
-    valid = false;
-    } else {
-        erroPerfil.style.display = "none";
+        // Validação da senha em tempo real
+        senha.addEventListener("input", function () {
+            if (senha.value.trim() === "") {
+                erroSenha.style.display = "block";
+            } else {
+                erroSenha.style.display = "none";
+            }
+        });
+
+        // Validação final ao enviar o formulário
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            let valid = true;
+
+            // Validação do perfil
+            if (perfil.value === "") {
+                erroPerfil.style.display = "block";
+                valid = false;
             }
 
-    // Validação do CPF (formato e tamanho)
-    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-    if (!cpfRegex.test(cpfInput.value)) {
-        erroCpf.style.display = "block";
-            valid = false;
-        } else {
-                erroCpf.style.display = "none";
-        }
+            // Validação do CPF
+            if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpfInput.value)) {
+                erroCpf.style.display = "block";
+                valid = false;
+            }
 
             // Validação da senha
             if (senha.value.trim() === "") {
                 erroSenha.style.display = "block";
                 valid = false;
-            } else {
-                erroSenha.style.display = "none";
             }
 
+            // Impede o envio se houver erros
             if (!valid) {
-                e.preventDefault(); // Impede o envio se houver erros
+                e.preventDefault();
             } else {
                 alert("Login enviado com sucesso!");
             }
-});
-
-
+        });

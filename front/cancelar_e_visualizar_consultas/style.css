@@ -28,7 +28,7 @@ body {
 
 section {
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 1200px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -42,21 +42,26 @@ h2 {
     text-align: center;
 }
 
+
 .consulta, .historico {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 20px 0;
-    background-color: #f1f1f1;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 1fr; /* Define 5 colunas */
+    gap: 10px; /* Espaçamento entre as colunas */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    border-radius: 10px;
+    margin: 10px 0;;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 1160px;
+    
 }
 
-.consulta > p {
-    margin-bottom: 20px;
+.consulta p, .historico p {
+    margin: 0; /* Remove espaçamento extra */
 }
 
-.historico > p {
-    margin-bottom: 20px;
-}
 
 button {
     display: flex;

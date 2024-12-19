@@ -25,6 +25,8 @@ router.get("/api/consultas/horarios", async (req, res) => {
 router.post("/api/consultas", async (req, res) => {
     const { cpf_usuario, unidade, especialidade, data, hora } = req.body;
 
+    console.log("Dados recebidos:", req.body); // Log para depuração
+
     if (!cpf_usuario || !unidade || !especialidade || !data || !hora) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios." });
     }
@@ -44,11 +46,13 @@ router.post("/api/consultas", async (req, res) => {
             [cpf_usuario, unidade, especialidade, data, hora]
         );
 
+        console.log("Consulta registrada:", result.rows[0]); // Log para depuração
         res.status(201).json({ message: "Consulta marcada com sucesso!", consulta: result.rows[0] });
     } catch (error) {
         console.error("Erro ao marcar consulta:", error);
         res.status(500).json({ message: "Erro no servidor." });
     }
 });
+
 
 module.exports = router;
